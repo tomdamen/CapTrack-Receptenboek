@@ -1,0 +1,24 @@
+.recipe-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+
+    margin: 3rem auto;
+}
+
+.recipe-title-image {
+    max-width: 30rem;
+}
+
+.recipe-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    max-width: 50rem;
+    margin: 3rem auto;
+}
+
+.recipe-ingredients {
+    min-width: 12.5rem;
+}

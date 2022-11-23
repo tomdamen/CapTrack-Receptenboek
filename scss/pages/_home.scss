@@ -1,0 +1,17 @@
+.home-introduction {
+    max-width: 50rem;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.home-recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    max-width: 50rem;
+    margin: 0 auto;
+}
+
+.home-recipe {
+    max-width: 15rem;
+}
