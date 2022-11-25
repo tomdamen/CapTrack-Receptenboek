@@ -161,8 +161,7 @@ footer .bg-primary {
 }
 .home-recipe-grid img {
   aspect-ratio: 1/1.5;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .home-recipe-grid a {
   position: relative;
@@ -194,13 +193,20 @@ footer .bg-primary {
   align-items: center;
   gap: 3rem;
   margin: 3rem auto;
+  padding-left: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
+  height: fit-content;
 }
 
 .recipe-title-image {
   max-width: 30rem;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
 }
 .recipe-title-image img {
-  border-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  border-top-right-radius: 1rem;
 }
 
 .recipe-wrapper {
@@ -209,6 +215,9 @@ footer .bg-primary {
   gap: 1.5rem;
   max-width: 50rem;
   margin: 3rem auto;
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.2);
+  border-radius: 1rem;
+  padding: 1rem;
 }
 
 .recipe-ingredients {
@@ -229,4 +238,4 @@ body {
 .bg-primary {
   background: #e1e8e7;
   width: 100vw;
-}/*# sourceMappingURL=main.css.map */
+}

@@ -3,14 +3,22 @@
     justify-content: center;
     align-items: center;
     gap: 3rem;
-    margin: 3rem auto; 
+    margin: 3rem auto;
+    padding-left: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 2rem rgb(0, 0, 0, 0.5);
+    height: fit-content;
+    // overflow: hidden;
 }
 
 .recipe-title-image {
     max-width: 30rem;
-    
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+
     img {
-        border-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+        border-top-right-radius: 1rem;
     }
 }
 
@@ -20,6 +28,10 @@
     gap: 1.5rem;
     max-width: 50rem;
     margin: 3rem auto;
+    box-shadow: 0 0 2rem rgb(0, 0, 0, 0.2);
+    border-radius: 1rem;
+    padding: 1rem;
+
 }
 
 .recipe-ingredients {
