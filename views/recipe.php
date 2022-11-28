@@ -5,15 +5,11 @@
 require_once("../php/classes/Database.php");
 require_once("../php/functions.php");
 
-function splitOnNewLine(string $inputString) : array {
-    return preg_split("/\r\n|\n|\r/", $inputString);
-}
-
+isset($_GET["id"]) ? $currentId = $_GET["id"] : $currentId = 1;
 
 $databaseClass = new Database();
 
-$queryById = $databaseClass->queryById(1);
-
+$queryById = $databaseClass->queryById($currentId);
 
 $ingredientsArray = splitOnNewLine($queryById[0]["ingredients"]);
 $instructionArray = splitOnNewLine($queryById[0]["instructions"]);
@@ -57,7 +53,7 @@ $instructionArray = splitOnNewLine($queryById[0]["instructions"]);
                 <p><?= $queryById[0]["added"] ?></p>
             </div>
             <div class="recipe-title-image">
-                <img src="./images/PizzaSalami.jpg" alt="Spaghetti Bolognese" srcset="">
+                <img src="./images/<?= removeSpaces($queryById[0]["title"]) ?>.jpg" alt="Spaghetti Bolognese" srcset="">
             </div>
         </section>
 
