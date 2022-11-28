@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php
+    require_once("../php/functions.php");
+    require_once("../php/classes/Database.php");
+    $temporaryDatabase = new Database;
+    $allTitles = $temporaryDatabase->queryTitles();
+
+?>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,13 +22,13 @@
     <div class="bg-primary">
         <header>
             <div class="header-logo">
-                <a href="./index.html"><img src="./images/logo.png" width="100" alt=""></a>
+                <a href="./index.php"><img src="./images/logo.png" width="100" alt=""></a>
             </div>
             <div class="header-title">
                 <p>super awesome recipe book</p>
             </div>
             <nav class="header-nav">
-                <a href="./index.html">Homepagina</a>
+                <a href="./index.php">Homepagina</a>
                 <a href="./contact.html">Contact</a>
             </nav>
         </header>
@@ -34,7 +42,10 @@
     </section>
 
     <section class="home-recipe-grid">
-        <a href="./spaghettiBolognese.html" class="home-recipe">
+
+        <?= makeRecipeGrid($allTitles) ?>
+
+        <!-- <a href="./recipe.php" class="home-recipe">
             <img src="./images/SpaghettiBolognese.jpg" alt="">
             <p class="text-center">Spaghetti Bolognese</p>
         </a>
@@ -47,9 +58,9 @@
             <p class="text-center">Tiramisu</p>
         </a>
         <a href="./pruimentaart.html" class="home-recipe">
-            <img src="./images/Italiaanse_pruimentaart.jfif" alt="">
+            <img src="./images/Pruimentaart.jpg" alt="">
             <p class="text-center">Pruimentaart</p>
-        </a>
+        </a> -->
     </section>
 
     <div class="footer-div">
