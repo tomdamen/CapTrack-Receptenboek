@@ -162,11 +162,14 @@ footer .bg-primary {
 .home-recipe-grid img {
   aspect-ratio: 1/1.5;
   object-fit: cover;
+  height: 100%;
 }
 .home-recipe-grid a {
   position: relative;
   overflow: hidden;
   border-radius: 1rem;
+  aspect-ratio: 1/1.5;
+  object-fit: cover;
 }
 .home-recipe-grid p {
   position: absolute;
