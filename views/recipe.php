@@ -15,8 +15,21 @@ $currentRecipe = $databaseClass->queryById($currentId);
 // $ingredientsArray = splitOnNewLine($currentRecipe[0]["ingredients"]);
 $instructionArray = splitOnNewLine($currentRecipe[0]["instructions"]);
 
-$recipe = new Recipe(2);
-print_r($recipe);
+// $user = "root";
+// $pass = "";
+
+// $db = new PDO('mysql:host=localhost;dbname=recipebook',$user,$pass);
+
+// $stmt = $db->prepare("SELECT * FROM ingredientsrecipes RIGHT JOIN ingredients ON ingredientsrecipes.ingredient_id = ingredient_id WHERE ingredientsrecipes.recipe_id = recipe_id");
+
+// $stmt->execute();
+// $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+$repice = new Recipe();
+$rows = $repice->getIngredients(1);
+echo '<pre>';
+print_r($rows);
+// print_r($currentInstructions);
 
 ?>
 
