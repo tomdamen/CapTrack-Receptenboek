@@ -9,10 +9,10 @@ isset($_GET["id"]) ? $currentId = $_GET["id"] : $currentId = 1;
 
 $databaseClass = new Database();
 
-$queryById = $databaseClass->queryById($currentId);
+$currentRecipe = $databaseClass->queryById($currentId);
 
-$ingredientsArray = splitOnNewLine($queryById[0]["ingredients"]);
-$instructionArray = splitOnNewLine($queryById[0]["instructions"]);
+$ingredientsArray = splitOnNewLine($currentRecipe[0]["ingredients"]);
+$instructionArray = splitOnNewLine($currentRecipe[0]["instructions"]);
 
 
 
@@ -24,7 +24,7 @@ $instructionArray = splitOnNewLine($queryById[0]["instructions"]);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/main.css">
 
-    <title></title>
+    <title><?= $currentRecipe[0]["title"] ?></title>
 </head>
 
 <body>
@@ -48,12 +48,12 @@ $instructionArray = splitOnNewLine($queryById[0]["instructions"]);
 
         <section class="recipe-title">
             <div class="recipe-title-text">
-                <h1><?= $queryById[0]["title"] ?></h1>
-                <p><?= $queryById[0]["subtitle"] ?></p>
-                <p><?= $queryById[0]["added"] ?></p>
+                <h1><?= $currentRecipe[0]["title"] ?></h1>
+                <p><?= $currentRecipe[0]["subtitle"] ?></p>
+                <p class="gray-text"><?= $currentRecipe[0]["added"] ?></p>
             </div>
             <div class="recipe-title-image">
-                <img src="./images/<?= removeSpaces($queryById[0]["title"]) ?>.jpg" alt="Spaghetti Bolognese" srcset="">
+                <img src="./images/<?= removeSpaces($currentRecipe[0]["title"]) ?>.jpg" alt="Spaghetti Bolognese" srcset="">
             </div>
         </section>
 
