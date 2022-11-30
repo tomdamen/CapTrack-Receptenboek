@@ -3,6 +3,7 @@
 
 <?php 
 require_once("../php/classes/Database.php");
+require_once("../php/classes/Recipe.php");
 require_once("../php/functions.php");
 
 isset($_GET["id"]) ? $currentId = $_GET["id"] : $currentId = 1;
@@ -11,10 +12,11 @@ $databaseClass = new Database();
 
 $currentRecipe = $databaseClass->queryById($currentId);
 
-$ingredientsArray = splitOnNewLine($currentRecipe[0]["ingredients"]);
+// $ingredientsArray = splitOnNewLine($currentRecipe[0]["ingredients"]);
 $instructionArray = splitOnNewLine($currentRecipe[0]["instructions"]);
 
-
+$recipe = new Recipe(2);
+print_r($recipe);
 
 ?>
 
