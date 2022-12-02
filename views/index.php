@@ -3,9 +3,13 @@
 
 <?php
     require_once("../php/functions.php");
-    require_once("../php/classes/Database.php");
-    $temporaryDatabase = new Database;
-    $allTitles = $temporaryDatabase->queryTitles();
+    require_once("../php/getAllRecipes.php");
+    require_once("../php/createRecipeGrid.php");
+    
+    $allRecipes = getAllRecipes();
+// echo "<pre>";
+// print_r($allRecipes);
+// echo "</pre>";
 
 ?>
 
@@ -43,7 +47,7 @@
 
     <section class="home-recipe-grid">
 
-        <?= makeRecipeGrid($allTitles) ?>
+        <?= createRecipeGrid($allRecipes); ?>
 
         <!-- <a href="./recipe.php" class="home-recipe">
             <img src="./images/SpaghettiBolognese.jpg" alt="">
@@ -62,6 +66,8 @@
             <p class="text-center">Pruimentaart</p>
         </a> -->
     </section>
+
+
 
     <div class="footer-div">
         <footer>
