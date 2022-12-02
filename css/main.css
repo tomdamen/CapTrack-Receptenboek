@@ -144,6 +144,11 @@ footer .bg-primary {
   flex-grow: 1;
 }
 
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
 .home-introduction {
   max-width: 50rem;
   margin: 0 auto;
