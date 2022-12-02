@@ -1,0 +1,15 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: $primaryColor;
+    max-width: 50rem;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
