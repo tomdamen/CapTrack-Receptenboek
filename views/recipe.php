@@ -8,28 +8,18 @@ require_once("../php/functions.php");
 
 isset($_GET["id"]) ? $currentId = $_GET["id"] : $currentId = 1;
 
-$databaseClass = new Database();
+$recipeDatabase = new PDO('mysql:host=localhost;dbname=recipebook',"root","");
+// print_r($allRecipes);
 
-$currentRecipe = $databaseClass->queryById($currentId);
 
-// $ingredientsArray = splitOnNewLine($currentRecipe[0]["ingredients"]);
-$instructionArray = splitOnNewLine($currentRecipe[0]["instructions"]);
+$currentRecipe = $recipeDatabase->query("SELECT * FROM recipes WHERE id = $currentId")->fetchAll();
+$recipeIngredients = $recipeDatabase->query("SELECT * FROM ingredientsrecipes RIGHT JOIN ingredients ON ingredientsrecipes.ingredient_id = ingredients.id WHERE ingredientsrecipes.recipe_id = $currentId")->fetchAll();
 
-// $user = "root";
-// $pass = "";
+echo "<pre>";
+print_r($currentRecipe);
+echo "</pre>";
 
-// $db = new PDO('mysql:host=localhost;dbname=recipebook',$user,$pass);
 
-// $stmt = $db->prepare("SELECT * FROM ingredientsrecipes RIGHT JOIN ingredients ON ingredientsrecipes.ingredient_id = ingredient_id WHERE ingredientsrecipes.recipe_id = recipe_id");
-
-// $stmt->execute();
-// $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-$repice = new Recipe();
-$rows = $repice->getIngredients(1);
-echo '<pre>';
-print_r($rows);
-// print_r($currentInstructions);
 
 ?>
 
@@ -76,14 +66,25 @@ print_r($rows);
             <section class="recipe-ingredients">
                 <h2>Ingrediënten:</h2>
                 <ul>
-                    <?= createListFromArray($ingredientsArray) ?>
+                    <?php 
+                        foreach ($recipeIngredients as $ingredient) {
+                            echo "<li>" . $ingredient["ingredient"] . "</li>";
+                        }
+                    
+                    ?>
                 </ul>
             </section>
 
             <section class="recipe-how-to">
                 <h2>Bereidingswijze:</h2>
                 <ol>
-                    <?= createListFromArray($instructionArray) ?>
+                    <?php 
+                    $instructionArray = splitOnNewLine($currentRecipe[0]["instructions"]);
+                        foreach ($instructionArray as $instruction) {
+                            echo "<li>" . $instruction . "</li>";
+                            
+                        }
+                    ?>
                 </ol>
             </section>
         </div>
