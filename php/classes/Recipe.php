@@ -4,6 +4,7 @@ require_once("../php/classes/Database.php");
 
 class Recipe {
 
+    public $id;
     private $database;
     public $currentRecipe;
     public $ingredients;
@@ -14,10 +15,15 @@ class Recipe {
     private $stmt;
     private $rows;
 
-    // public function __construct($id) {
-    //     $this->database = new Database();
-    //     $this->currentRecipe = $this->database->queryById($id);
-    // }
+    public function __construct($id) {
+        $this->database = new PDO('mysql:host=localhost;dbname=recipebook',"root","");
+        
+        $this->currentRecipe = $recipeDatabase->query("SELECT * FROM recipes WHERE id = $currentId")->fetchAll();
+        $this->currentRecipeIngredients = $recipeDatabase->query("SELECT * FROM ingredientsrecipes RIGHT JOIN ingredients ON ingredientsrecipes.ingredient_id = ingredients.id WHERE ingredientsrecipes.recipe_id = $currentId")->fetchAll();
+
+        
+        // $this->currentRecipe = $this->database->queryById($id);
+    }
 
 
     function getInstructions() {
