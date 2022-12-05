@@ -14,7 +14,7 @@
     <div class="bg-primary">
         <header>
             <div class="header-logo">
-                <a href="./index.html"><img src="./images/logo.png" width="100" alt=""></a>
+                <a href="./index.php"><img src="./images/logo.png" width="100" alt=""></a>
             </div>
             <div class="header-title">
                 <p>super awesome recipe book</p>
@@ -29,19 +29,19 @@
     <section class="add-recipe">
         <form action="./../php/createNewEntry.php" method="post" enctype="multipart/form-data">
             <label for="recipe-title">Titel</label>
-            <input type="text" id="recipe-title" name="recipe-title">
+            <input type="text" id="recipe-title" name="recipe-title" required>
 
             <label for="recipe-subtitle">Ondertitel</label>
-            <input type="text" id="recipe-subtitle" name="recipe-subtitle">
+            <input type="text" id="recipe-subtitle" name="recipe-subtitle" required>
 
             <label for="recipe-ingredients">Ingrediënten</label>
-            <textarea id="recipe-ingredient" name="recipe-ingredients"></textarea>
+            <textarea id="recipe-ingredient" name="recipe-ingredients" required></textarea>
 
             <label for="recipe-instructions">Bereidingswijze</label>
-            <textarea id="recipe-instructions" name="recipe-insrtuctions"></textarea>
+            <textarea id="recipe-instructions" name="recipe-insrtuctions" required></textarea>
 
             <label for="recipe-image">Foto uploaden:</label>
-            <input type="file" id="recipe-image" name="recipe-image">
+            <input type="file" id="recipe-image" name="recipe-image" required>
 
             <input type="submit" value="Inzenden">
 
