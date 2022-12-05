@@ -27,7 +27,7 @@
     </div>
 
     <section class="add-recipe">
-        <form action="./../php/createNewEntry.php" method="post">
+        <form action="./../php/createNewEntry.php" method="post" enctype="multipart/form-data">
             <label for="recipe-title">Titel</label>
             <input type="text" id="recipe-title" name="recipe-title">
 
@@ -39,6 +39,9 @@
 
             <label for="recipe-instructions">Bereidingswijze</label>
             <textarea id="recipe-instructions" name="recipe-insrtuctions"></textarea>
+
+            <label for="recipe-image">Foto uploaden:</label>
+            <input type="file" id="recipe-image" name="recipe-image">
 
             <input type="submit" value="Inzenden">
 
