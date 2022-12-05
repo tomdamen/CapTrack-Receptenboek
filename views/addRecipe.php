@@ -27,7 +27,7 @@
     </div>
 
     <section class="add-recipe">
-        <form action="" method="post">
+        <form action="./../php/createNewEntry.php" method="post">
             <label for="recipe-title">Titel</label>
             <input type="text" id="recipe-title" name="recipe-title">
 
@@ -35,10 +35,10 @@
             <input type="text" id="recipe-subtitle" name="recipe-subtitle">
 
             <label for="recipe-ingredients">Ingrediënten</label>
-            <input type="text" id="recipe-ingredient" name="recipe-ingredients">
+            <textarea id="recipe-ingredient" name="recipe-ingredients"></textarea>
 
             <label for="recipe-instructions">Bereidingswijze</label>
-            <input type="text" id="recipe-instructions" name="recipe-insrtuctions">
+            <textarea id="recipe-instructions" name="recipe-insrtuctions"></textarea>
 
             <input type="submit" value="Inzenden">
 
