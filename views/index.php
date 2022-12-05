@@ -3,9 +3,13 @@
 
 <?php
     require_once("../php/functions.php");
-    require_once("../php/classes/Database.php");
-    $temporaryDatabase = new Database;
-    $allTitles = $temporaryDatabase->queryTitles();
+    require_once("../php/getAllRecipes.php");
+    require_once("../php/createRecipeGrid.php");
+    
+    $allRecipes = getAllRecipes();
+// echo "<pre>";
+// print_r($allRecipes);
+// echo "</pre>";
 
 ?>
 
@@ -13,13 +17,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/main.css?v=<?php echo time(); ?>">
     <title>Receptenboek</title>
 </head>
 
 <body>
 
-    <div class="bg-primary">
+    <div class="bg-primary" style="background='black'">
         <header>
             <div class="header-logo">
                 <a href="./index.php"><img src="./images/logo.png" width="100" alt=""></a>
@@ -29,7 +33,7 @@
             </div>
             <nav class="header-nav">
                 <a href="./index.php">Homepagina</a>
-                <a href="./contact.html">Contact</a>
+                <a href="./addRecipe.php">Toevoegen +</a>
             </nav>
         </header>
     </div>
@@ -43,7 +47,7 @@
 
     <section class="home-recipe-grid">
 
-        <?= makeRecipeGrid($allTitles) ?>
+        <?= createRecipeGrid($allRecipes); ?>
 
         <!-- <a href="./recipe.php" class="home-recipe">
             <img src="./images/SpaghettiBolognese.jpg" alt="">
@@ -62,6 +66,8 @@
             <p class="text-center">Pruimentaart</p>
         </a> -->
     </section>
+
+
 
     <div class="footer-div">
         <footer>

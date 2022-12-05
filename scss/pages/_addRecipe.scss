@@ -1,0 +1,24 @@
+.add-recipe>form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+
+    padding: 2rem;
+    width: fit-content;
+
+    margin: 2rem auto;
+
+    border-radius: 1rem;
+    box-shadow: 0 0 2rem rgb(0, 0, 0, 0.2);
+
+    input,
+    textarea {
+        border: 1px solid black;
+        border-radius: 0.25rem;
+    }
+
+    input[type=submit] {
+        grid-column: span 2;
+        background-color: lightgray;
+    }
+}
