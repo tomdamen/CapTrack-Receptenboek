@@ -144,6 +144,26 @@ footer .bg-primary {
   flex-grow: 1;
 }
 
+.add-recipe > form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  padding: 2rem;
+  width: fit-content;
+  margin: 2rem auto;
+  border-radius: 1rem;
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.2);
+}
+.add-recipe > form input,
+.add-recipe > form textarea {
+  border: 1px solid black;
+  border-radius: 0.25rem;
+}
+.add-recipe > form input[type=submit] {
+  grid-column: span 2;
+  background-color: lightgray;
+}
+
 .home-introduction {
   max-width: 50rem;
   margin: 0 auto;
@@ -161,7 +181,8 @@ footer .bg-primary {
 }
 .home-recipe-grid img {
   aspect-ratio: 1/1.5;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   height: 100%;
 }
 .home-recipe-grid a {
@@ -169,7 +190,8 @@ footer .bg-primary {
   overflow: hidden;
   border-radius: 1rem;
   aspect-ratio: 1/1.5;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .home-recipe-grid p {
   position: absolute;
@@ -199,6 +221,8 @@ footer .bg-primary {
   padding-left: 1rem;
   border-radius: 1rem;
   box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
   height: fit-content;
 }
 
@@ -231,6 +255,10 @@ ul {
   padding-bottom: 1rem;
 }
 
+.olinstruction li {
+  padding: 0.5rem;
+}
+
 .gray-text {
   color: gray;
 }
@@ -245,4 +273,4 @@ body {
 .bg-primary {
   background: #e1e8e7;
   width: 100vw;
-}
+}/*# sourceMappingURL=main.css.map */

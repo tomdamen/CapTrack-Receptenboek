@@ -18,7 +18,7 @@ $recipe = new Recipe($currentId);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/main.css?v=<?php echo time(); ?>">
 
     <title><?= $recipe->getTitle() ?></title>
 </head>
@@ -37,7 +37,7 @@ $recipe = new Recipe($currentId);
                 </div>
                 <nav class="header-nav">
                     <a href="./index.php">Homepagina</a>
-                    <a href="./contact.html">Contact</a>
+                    <a href="./addRecipe.php">Toevoegen +</a>
                 </nav>
             </header>
         </div>
@@ -61,14 +61,13 @@ $recipe = new Recipe($currentId);
                         foreach ($recipe->getIngredients() as $ingredient) {
                             echo "<li>" . $ingredient["ingredient"] . "</li>";
                         }
-                    
                     ?>
                 </ul>
             </section>
 
             <section class="recipe-how-to">
                 <h2>Bereidingswijze:</h2>
-                <ol>
+                <ol class="olinstruction">
                     <?php 
                         foreach ($recipe->getInstructions() as $instruction) {
                             echo "<li>" . $instruction . "</li>";
