@@ -65,14 +65,13 @@ echo "</pre>";
                         foreach ($recipe->getIngredients() as $ingredient) {
                             echo "<li>" . $ingredient["ingredient"] . "</li>";
                         }
-                    
                     ?>
                 </ul>
             </section>
 
             <section class="recipe-how-to">
                 <h2>Bereidingswijze:</h2>
-                <ol>
+                <ol class="olinstruction">
                     <?php 
                         foreach ($recipe->getInstructions() as $instruction) {
                             echo "<li>" . $instruction . "</li>";
