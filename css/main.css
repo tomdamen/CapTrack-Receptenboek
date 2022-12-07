@@ -212,6 +212,21 @@ footer .bg-primary {
   max-width: 15rem;
 }
 
+.pageNotFound {
+  max-width: 50rem;
+  margin: 0 auto;
+  text-align: center;
+}
+.pageNotFound a {
+  padding: 0.5rem;
+  background-color: lightgrey;
+  border: 1px solid black;
+  border-radius: 0.25rem;
+}
+.pageNotFound p {
+  padding: 2rem;
+}
+
 .recipe-title {
   display: flex;
   justify-content: center;
