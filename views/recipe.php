@@ -9,9 +9,13 @@ isset($_GET["id"]) ? $currentId = $_GET["id"] : $currentId = 1;
 
 $recipe = new Recipe($currentId);
 
-// echo "<pre>";
-// print_r($recipe);
-// echo "</pre>";
+if (!$recipe->getTitle()) {
+    header("Location: ./../views/recipeNotFound.php");
+}
+
+echo "<pre>";
+print_r($recipe->getTitle());
+echo "</pre>";
 ?>
 
 <head>
@@ -61,14 +65,13 @@ $recipe = new Recipe($currentId);
                         foreach ($recipe->getIngredients() as $ingredient) {
                             echo "<li>" . $ingredient["ingredient"] . "</li>";
                         }
-                    
                     ?>
                 </ul>
             </section>
 
             <section class="recipe-how-to">
                 <h2>Bereidingswijze:</h2>
-                <ol>
+                <ol class="olinstruction">
                     <?php 
                         foreach ($recipe->getInstructions() as $instruction) {
                             echo "<li>" . $instruction . "</li>";

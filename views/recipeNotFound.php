@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php
+    require_once("../php/functions.php");
+    require_once("../php/getAllRecipes.php");
+    require_once("../php/createRecipeGrid.php");
+    
+    $allRecipes = getAllRecipes();
+// echo "<pre>";
+// print_r($allRecipes);
+// echo "</pre>";
+
+?>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,7 +23,7 @@
 
 <body>
 
-    <div class="bg-primary">
+    <div class="bg-primary" style="background='black'">
         <header>
             <div class="header-logo">
                 <a href="./index.php"><img src="./images/logo.png" width="100" alt=""></a>
@@ -26,27 +38,11 @@
         </header>
     </div>
 
-    <section class="add-recipe">
-        <form action="./../php/createNewEntry.php" method="post" enctype="multipart/form-data">
-            <label for="recipe-title">Titel</label>
-            <input type="text" id="recipe-title" name="recipe-title" required>
-
-            <label for="recipe-subtitle">Ondertitel</label>
-            <input type="text" id="recipe-subtitle" name="recipe-subtitle" required>
-
-            <label for="recipe-ingredients">Ingrediënten</label>
-            <textarea id="recipe-ingredient" name="recipe-ingredients" required></textarea>
-
-            <label for="recipe-instructions">Bereidingswijze</label>
-            <textarea id="recipe-instructions" name="recipe-insrtuctions" required></textarea>
-
-            <label for="recipe-image">Foto uploaden:</label>
-            <input type="file" id="recipe-image" name="recipe-image" required>
-
-            <input type="submit" value="Inzenden">
-
-        </form>
+    <section class="pageNotFound">
+        <p>Helaas! Het recept dat u wilde zoeken is niet beschikbaar.</p>
+        <a href="./index.php">Terug naar de Homepagina</a>
     </section>
+
 
     <div class="footer-div">
         <footer>
@@ -55,7 +51,7 @@
             </div>
         </footer>
     </div>
-   
+
 </body>
 
 </html>

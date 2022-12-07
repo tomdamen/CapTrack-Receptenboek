@@ -1,0 +1,17 @@
+.pageNotFound {
+    max-width: 50rem;
+    margin: 0 auto;
+    text-align: center;
+
+
+    a {
+        padding: 0.5rem;
+        background-color: lightgrey;
+        border: 1px solid black;
+        border-radius: 0.25rem;
+    }
+
+    p {
+        padding: 2rem;
+    }
+}

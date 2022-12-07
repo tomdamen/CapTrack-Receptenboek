@@ -181,7 +181,8 @@ footer .bg-primary {
 }
 .home-recipe-grid img {
   aspect-ratio: 1/1.5;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   height: 100%;
 }
 .home-recipe-grid a {
@@ -189,7 +190,8 @@ footer .bg-primary {
   overflow: hidden;
   border-radius: 1rem;
   aspect-ratio: 1/1.5;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .home-recipe-grid p {
   position: absolute;
@@ -210,6 +212,21 @@ footer .bg-primary {
   max-width: 15rem;
 }
 
+.pageNotFound {
+  max-width: 50rem;
+  margin: 0 auto;
+  text-align: center;
+}
+.pageNotFound a {
+  padding: 0.5rem;
+  background-color: lightgrey;
+  border: 1px solid black;
+  border-radius: 0.25rem;
+}
+.pageNotFound p {
+  padding: 2rem;
+}
+
 .recipe-title {
   display: flex;
   justify-content: center;
@@ -219,6 +236,8 @@ footer .bg-primary {
   padding-left: 1rem;
   border-radius: 1rem;
   box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
   height: fit-content;
 }
 
@@ -251,6 +270,10 @@ ul {
   padding-bottom: 1rem;
 }
 
+.olinstruction li {
+  padding: 0.5rem;
+}
+
 .gray-text {
   color: gray;
 }
@@ -265,4 +288,4 @@ body {
 .bg-primary {
   background: #e1e8e7;
   width: 100vw;
-}
+}/*# sourceMappingURL=main.css.map */
