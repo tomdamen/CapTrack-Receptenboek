@@ -9,9 +9,13 @@ isset($_GET["id"]) ? $currentId = $_GET["id"] : $currentId = 1;
 
 $recipe = new Recipe($currentId);
 
-// echo "<pre>";
-// print_r($recipe);
-// echo "</pre>";
+if (!$recipe->getTitle()) {
+    header("Location: ./../views/recipeNotFound.php");
+}
+
+echo "<pre>";
+print_r($recipe->getTitle());
+echo "</pre>";
 ?>
 
 <head>

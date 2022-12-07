@@ -12,6 +12,10 @@ if (isset($_POST["recipe-title"])) {
     $recipeIngredients = splitOnNewLine(validateData($_POST["recipe-ingredients"]));
     $recipeInstructions = validateData($_POST["recipe-insrtuctions"]);
 
+    // $recipeData = makeVariablesFromPost($_POST);
+    // $recipeData = $_POST["recipe-title"];
+    // print_r($recipeData);
+
     $imagePath = "./../views/images/";
     $imageTemp = $_FILES["recipe-image"]["tmp_name"];
     move_uploaded_file($imageTemp,$imagePath . removeSpaces($recipeTitle) . ".jpg");
@@ -34,10 +38,20 @@ if (isset($_POST["recipe-title"])) {
         }
         $database->query("INSERT INTO `ingredientsrecipes` (`ingredient_id`,`recipe_id`) VALUES ('$ingredientId','$newId')");
     }
+    header("Location: ./../views/recipe.php?id=$newId");
 }
 
 
+// function makeVariablesFromPost($POST) {
+//     $recipeTitle = validateData($POST["recipe-title"]);
+//     $recipeSubtitle = validateData($POST["recipe-subtitle"]);
+//     $recipeIngredients = splitOnNewLine(validateData($POST["recipe-ingredients"]));
+//     $recipeInstructions = validateData($POST["recipe-insrtuctions"]);
+//     print_r($recipeTitle);
+//     return $data = array("recipeTitle" => $recipeTitle,"recipeSubtitle" => $recipeSubtitle, 
+//     "recipeIngredients" => $recipeIngredients, "recipeInstructions" => $recipeInstructions);
+// }
 
 
 
-header("Location: ./../views/recipe.php?id=$newId");
+
