@@ -2,14 +2,13 @@
 <html lang="en">
 
 <?php
+    require_once("../php/header.php");
+    require_once("../php/footer.php");
     require_once("../php/functions.php");
     require_once("../php/getAllRecipes.php");
     require_once("../php/createRecipeGrid.php");
     
     $allRecipes = getAllRecipes();
-// echo "<pre>";
-// print_r($allRecipes);
-// echo "</pre>";
 
 ?>
 
@@ -23,20 +22,7 @@
 
 <body>
 
-    <div class="bg-primary" style="background='black'">
-        <header>
-            <div class="header-logo">
-                <a href="./index.php"><img src="./images/logo.png" width="100" alt=""></a>
-            </div>
-            <div class="header-title">
-                <p>super awesome recipe book</p>
-            </div>
-            <nav class="header-nav">
-                <a href="./index.php">Homepagina</a>
-                <a href="./addRecipe.php">Toevoegen +</a>
-            </nav>
-        </header>
-    </div>
+    <?= makeHeader(); ?>
 
     <section class="home-introduction">
         <p>Welkom bij het receptenboek van Esma en Tom</p>
@@ -46,37 +32,10 @@
     </section>
 
     <section class="home-recipe-grid">
-
         <?= createRecipeGrid($allRecipes); ?>
-
-        <!-- <a href="./recipe.php" class="home-recipe">
-            <img src="./images/SpaghettiBolognese.jpg" alt="">
-            <p class="text-center">Spaghetti Bolognese</p>
-        </a>
-        <a href="./pizzaSalami.html" class="home-recipe">
-            <img src="./images/PizzaSalami.jpg" alt="">
-            <p class="text-center">Pizza Salami</p>
-        </a>
-        <a href="./tiramisu.html" class="home-recipe">
-            <img src="./images/Tiramisu.jpg" alt="">
-            <p class="text-center">Tiramisu</p>
-        </a>
-        <a href="./pruimentaart.html" class="home-recipe">
-            <img src="./images/Pruimentaart.jpg" alt="">
-            <p class="text-center">Pruimentaart</p>
-        </a> -->
     </section>
 
-
-
-    <div class="footer-div">
-        <footer>
-            <div class="bg-primary">
-                <p class="text-center">&#169; 2022 Esma and Tom Productions</p>
-            </div>
-        </footer>
-    </div>
-
+    <?= makeFooter(); ?>
 </body>
 
 </html>
