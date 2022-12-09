@@ -7,9 +7,6 @@
     require_once("../php/functions.php");
     require_once("../php/getAllRecipes.php");
     require_once("../php/createRecipeGrid.php");
-    
-    $allRecipes = getAllRecipes();
-
 ?>
 
 <head>
@@ -24,18 +21,14 @@
 
     <?= makeHeader(); ?>
 
-    <section class="home-introduction">
-        <p>Welkom bij het receptenboek van Esma en Tom</p>
-        <p>Wij houden van de Italiaanse keuken! Hieronder kun je onze favoriete recepten vinden. Met deze recepten waan
-            je je in een handomdraai in het mooie Italië. Of je nu een pizza salami wil maken of een heerlijke tiramisu,
-            hier is alles te vinden!</p>
+    <section class="pageNotFound">
+        <p>Helaas! Het recept dat u wilde zoeken is niet beschikbaar.</p>
+        <a href="./index.php">Terug naar de Homepagina</a>
     </section>
 
-    <section class="home-recipe-grid">
-        <?= createRecipeGrid($allRecipes); ?>
-    </section>
 
     <?= makeFooter(); ?>
+
 </body>
 
 </html>
