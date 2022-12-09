@@ -2,33 +2,27 @@
 
 require_once("../php/functions.php");
 
-$database =  new PDO('mysql:host=localhost;dbname=recipebook',"root","");
+if (isset($_POST["recipe-title"])) {
 
-function postData($data) {
-    
-    $recipeTitle = validateData($_POST["recipe-title"]);
-    $recipeSubtitle = validateData($_POST["recipe-subtitle"]);
-    $recipeIngredients = splitOnNewLine(validateData($_POST["recipe-ingredients"]));
-    $recipeInstructions = validateData($_POST["recipe-insrtuctions"]);
+    $database =  new PDO('mysql:host=localhost;dbname=recipebook',"root","");
+    $postDataTitle = postData();
 
-    return $data = array(
-        "recipeTitle"=> $recipeTitle, 
-        "recipeSubtitle"=> $recipeSubtitle, "recipeIngredients"=> $recipeIngredients,"recipeInstructions"=> $recipeInstructions
-    );
+    imageSave();
+    databaseUpdate($database);
 }
 
 function imageSave() {
 
-    $postDataTitle = postData($_POST);
+    $postDataTitle = postData();
     
     $imagePath = "./../views/images/";
     $imageTemp = $_FILES["recipe-image"]["tmp_name"];
     move_uploaded_file($imageTemp,$imagePath . removeSpaces($postDataTitle['recipeTitle']) . ".jpg");
 }
 
-function databaseUpdate($database) {
+function databaseUpdate(PDO $database) {
 
-    $postData = postData($_POST);
+    $postData = postData();
 
     $postDataTitle = $postData['recipeTitle'];
     $postDataSubtitle = $postData['recipeSubtitle'];
@@ -54,11 +48,17 @@ function databaseUpdate($database) {
     header("Location: ./../views/recipe.php?id=$newId");
 }
 
-if (isset($_POST["recipe-title"])) {
+function postData() : Array {
+    
+    $recipeTitle = validateData($_POST["recipe-title"]);
+    $recipeSubtitle = validateData($_POST["recipe-subtitle"]);
+    $recipeIngredients = splitOnNewLine(validateData($_POST["recipe-ingredients"]));
+    $recipeInstructions = validateData($_POST["recipe-insrtuctions"]);
 
-    $postDataTitle = postData($_POST);
-
-    imageSave();
-    databaseUpdate($database);
-
+    return array(
+        "recipeTitle"=> $recipeTitle, 
+        "recipeSubtitle"=> $recipeSubtitle, 
+        "recipeIngredients"=> $recipeIngredients,
+        "recipeInstructions"=> $recipeInstructions
+    );
 }

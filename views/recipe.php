@@ -2,20 +2,26 @@
 <html lang="en">
 
 <?php 
+require_once("../php/header.php");
+require_once("../php/footer.php");
 require_once("../php/classes/Recipe.php");
 require_once("../php/functions.php");
 
 isset($_GET["id"]) ? $currentId = $_GET["id"] : $currentId = 1;
 
-$recipe = new Recipe($currentId);
+function isIdAvailable(int $id) : bool {
+    $database = new PDO('mysql:host=localhost;dbname=recipebook',"root","");
+    return !empty($database->query("SELECT * FROM `recipes` WHERE `id` = $id")->fetchAll());
+}
 
-if (!$recipe->getTitle()) {
+
+if (isIdAvailable($currentId)) {
+    $recipe = new Recipe($currentId);
+} else {
     header("Location: ./../views/recipeNotFound.php");
 }
 
-echo "<pre>";
-print_r($recipe->getTitle());
-echo "</pre>";
+
 ?>
 
 <head>
@@ -31,20 +37,7 @@ echo "</pre>";
 
     <body>
 
-        <div class="bg-primary">
-            <header>
-                <div class="header-logo">
-                    <a href="./index.php"><img src="./images/logo.png" width="100" alt=""></a>
-                </div>
-                <div class="header-title">
-                    <p>super awesome recipe book</p>
-                </div>
-                <nav class="header-nav">
-                    <a href="./index.php">Homepagina</a>
-                    <a href="./addRecipe.php">Toevoegen +</a>
-                </nav>
-            </header>
-        </div>
+    <?= makeHeader(); ?>
 
         <section class="recipe-title">
             <div class="recipe-title-text">
@@ -81,13 +74,7 @@ echo "</pre>";
             </section>
         </div>
 
-        <div class="footer-div">
-            <footer>
-                <div class="bg-primary">
-                    <p class="text-center">&#169; 2022 Esma and Tom Productions</p>
-                </div>
-            </footer>
-        </div>
+        <?= makeFooter(); ?>
 
     </body>
 

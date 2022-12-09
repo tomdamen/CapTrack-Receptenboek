@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php 
+    require_once("../php/header.php");
+    require_once("../php/footer.php");
+
+?>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,20 +17,7 @@
 
 <body>
 
-    <div class="bg-primary">
-        <header>
-            <div class="header-logo">
-                <a href="./index.php"><img src="./images/logo.png" width="100" alt=""></a>
-            </div>
-            <div class="header-title">
-                <p>super awesome recipe book</p>
-            </div>
-            <nav class="header-nav">
-                <a href="./index.php">Homepagina</a>
-                <a href="./addRecipe.php">Toevoegen +</a>
-            </nav>
-        </header>
-    </div>
+    <?= makeHeader() ?>
 
     <section class="add-recipe">
         <form action="./../php/createNewEntry.php" method="post" enctype="multipart/form-data">
@@ -48,13 +41,7 @@
         </form>
     </section>
 
-    <div class="footer-div">
-        <footer>
-            <div class="bg-primary">
-                <p class="text-center">&#169; 2022 Esma and Tom Productions</p>
-            </div>
-        </footer>
-    </div>
+    <?= makeFooter(); ?>
    
 </body>
 
