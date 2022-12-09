@@ -27,10 +27,10 @@
             <label for="recipe-subtitle">Ondertitel</label>
             <input type="text" id="recipe-subtitle" name="recipe-subtitle" required>
 
-            <label for="recipe-ingredients">Ingrediënten</label>
+            <label for="recipe-ingredients">Ingrediënten <br/> (elk ingredient op een nieuwe regel)</label>
             <textarea id="recipe-ingredient" name="recipe-ingredients" required></textarea>
 
-            <label for="recipe-instructions">Bereidingswijze</label>
+            <label for="recipe-instructions">Bereidingswijze <br/> (elke stap op een nieuwe regel)</label>
             <textarea id="recipe-instructions" name="recipe-insrtuctions" required></textarea>
 
             <label for="recipe-image">Foto uploaden:</label>
